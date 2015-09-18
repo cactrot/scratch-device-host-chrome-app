@@ -1,0 +1,19 @@
+{
+  "name": "Hello World!",
+  "description": "My first Chrome App.",
+  "version": "0.1",
+  "manifest_version": 2,
+  "permissions": ["serial"],
+  "offline_enabled": true,
+  "externally_connectable": {
+    "matches": [
+      "*://*.scratchx.org/*"
+    ]
+  },
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+}
