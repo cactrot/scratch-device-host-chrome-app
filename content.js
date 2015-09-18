@@ -5,6 +5,11 @@ var placeHolder = "Select a port.";
 var portApp = null;
 var recvData = [];
 var recieving = false;
+var hide = false;
+
+if ( hide ) {
+	chrome.app.window.current().hide();
+}
 
 var charsBase64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
