@@ -1,0 +1,45 @@
+
+http://scratchx.org/scratch_extensions/scratch_nmh.js :
+
+var extensionID = 'akaldphhachhmgiohihcjcelkgggjlmo';
+
+Left click arduino extension, click "Remove extension blocks".
+
+Click :"Load Experimental Extension".
+
+Then run in console:
+var reset_extension = function() {
+	window.ScratchDeviceHost.constructor()
+
+	var url = document.querySelector("input")
+
+	url.value = "http://khanning.github.io/scratch-arduino-extension/arduino_extension.js"
+
+	url.nextElementSibling.click()
+
+	document.getElementsByClassName("success")[0].click()
+}
+
+reset_extension();
+
+added a check for invalid data in "processSysexMessage":
+line 185
+if ( storedInputData[i-1] <= MAX_PINS )
+{
+  pinModes[storedInputData[i-1]].push(pin);
+}
+
+change arduino_extension.js:
+line 509
+    console.log('Attempting connection with ' + device.id);
+    device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 }, function() {
+      device.set_receive_handler(function(data) {
+        var inputData = new Uint8Array(data);
+        processInput(inputData);
+      });
+    });
+
+	
+may have to pump up the pinger timeout or count
+line 119
+300
