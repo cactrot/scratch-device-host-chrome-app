@@ -6,7 +6,8 @@ This is a proof of concept, it's a little rough but it works.
 
 To test it I'm using the Chrome developer tools to edit the extension ID so it can connect.
 
-scratch_nmh.js line 12
+scratch_nmh.js: line 12
+
 from:
 ```
  var extensionID = 'clmabinlolakdafkoajkfjjengcdmnpm'; // The original ID
